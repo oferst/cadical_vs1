@@ -1,0 +1,7 @@
+#define CADICAL_VERSION "sc17"
+#define CADICAL_GITID "7a80db8a54334347b870674d9b4cce6b97c1e503"
+#define CADICAL_CXX "g++"
+#define CADICAL_CXXFLAGS "-Wall -O3 -DNDEBUG"
+#define CADICAL_CXXVERSION "g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)"
+#define CADICAL_COMPILED "Thu Nov 30 13:46:37 IST 2017"
+#define CADICAL_OS "Linux innov1 3.10.0-514.21.2.el7.x86_64 x86_64"

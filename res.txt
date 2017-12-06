@@ -1,0 +1,335 @@
+*********** tmp_T.cnf
+
+>>>>>>>>>>>>>>>>>>>>> normal
+c ---- [ run-time profiling data ] -------------------------------------------
+c 
+c        53.31   70.66% search
+c        19.94   26.43% simplify
+c        11.05   14.64% elim
+c         4.57    6.05% collect
+c         4.35    5.76% subsume
+c         3.10    4.11% reduce
+c         2.41    3.19% probe
+c         2.39    3.17% connect
+c         1.66    2.21% vivify
+c         1.41    1.87% decompose
+c         1.21    1.61% parse
+c         0.72    0.96% compact
+c         0.47    0.63% transred
+c         0.24    0.32% deduplicate
+c   ===============================
+c        75.45  100.00% all
+c 
+c ---- [ statistics ] --------------------------------------------------------
+c 
+c bumped:                  1964328        86.77    per conflict
+c compacts:                      1     22638.00    conflicts per compact
+c conflicts:                 22638       300.04    per second
+c decisions:                610445      8090.71    per second
+c decompositions:                4         2.00    decompositions per probing
+c eliminated:               623789        51.17 %  of all variables
+c eliminations:                  7      3234.00    conflicts per elimination
+c failed:                       31         0.00 %  of all variables
+c fixed:                    151769        12.45 %  of all variables
+c   units:                     538        42.08    conflicts per unit
+c   binaries:                 4117         5.50    conflicts per binary
+c learned:                  184393         8.15    per conflict
+c memory:                496381952       473.39    bytes and MB
+c minimized:                 28993        13.59 %  of 1st-UIP-literals
+c probings:                      2     11319.00    conflicts per probing
+c probed:                    11387       367.32    per failed
+c   hbrs:                   464578        40.80    per probed
+c   hbrsizes:              1497842         3.22    per hbr
+c   hbreds:                 272039        58.56 %  per hbr
+c   hbrsubs:                   195         0.04 %  per hbr
+c propagations:          271318771         3.60    millions per second
+c   searchprops:         246530626        90.86 %  of propagations
+c   transredprops:        15438193         5.69 %  of propagations
+c   probeprops:            4339661         1.60 %  of propagations
+c   vivifyprops:           5010291         1.85 %  of propagations
+c reduced:                    5665        25.02 %  clauses per conflict
+c   collections:                11      2058.00    conflicts per collection
+c   extendbytes:          33554432        32.00    bytes and MB
+c reductions:                    7      3234.00    conflicts per reduction
+c rephased:                      0         0.00    conflicts per rephase
+c resolutions:            17858082        28.63    per eliminated
+c   elimres2:             14888515       100.00 %  per resolved
+c   elimrestried:         15367505        86.05 %  per resolved
+c restarts:                    924        24.50    conflicts per restart
+c reused:                       72         7.79 %  per restart
+c searched:               18193418        29.80    per decision
+c strengthened:             265025         2.87    per subsumed
+c   subirr:                  81803        88.45 %  of subsumed
+c   subred:                    261         0.28 %  of subsumed
+c   subtried:              2617271       115.61    per conflict
+c   subchecks:            20626326         7.88    per tried
+c   subchecks2:             105417         0.51 %  per subcheck
+c substituted:              124698        10.23 %  of all variables
+c subsumed:                  92490        28.30    tried per subsumed
+c   duplicated:              10336        11.18 %  per subsumed
+c   transitive:               1059         1.14 %  per subsumed
+c subsumptions:                  7      3234.00    conflicts per subsumption
+c time:                                   75.45    seconds
+c transreductions:               2     11319.00    conflicts per reduction
+c vivifications:                 2     11319.00    conflicts per vivification
+c vivified:                    367         3.75 %  per vivify check
+c   vivifychecks:             9789        43.24 %  per conflict
+c   vivifysched:            630112         1.55 %  checks per scheduled
+c   vivifyunits:                 0         0.00 %  per vivify check
+c   vivifysubs:                 90         0.10 %  per subsumed
+c   vivifystrs:                277         0.10 %  per strengthened
+c   vivifydecs:              19930         2.04    per checks
+c   vivifyreused:             9590        48.12 %  per decision
+c 
+c exit 10
+
+
+// vivify with glue. (better search)
+c ---- [ run-time profiling data ] -------------------------------------------
+c
+c        60.18   72.08% search
+c        21.48   25.72% simplify
+c        11.05   13.24% elim
+c         5.53    6.62% collect
+c         4.86    5.82% subsume
+c         4.26    5.11% reduce
+c         3.51    4.21% probe
+c         2.33    2.79% connect
+c         1.70    2.04% decompose
+c         1.58    1.90% vivify
+c         1.53    1.83% parse
+c         0.82    0.98% compact
+c         0.47    0.56% transred
+c         0.31    0.37% deduplicate
+c   ===============================
+c        83.49  100.00% all
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c bumped:                  1895698        87.54    per conflict
+c compacts:                      1     21654.00    conflicts per compact
+c conflicts:                 21654       259.37    per second
+c decisions:                576059      6899.92    per second
+c decompositions:                4         2.00    decompositions per probing
+c eliminated:               623514        51.15 %  of all variables
+c eliminations:                  7      3093.43    conflicts per elimination
+c failed:                       20         0.00 %  of all variables
+c fixed:                    152312        12.49 %  of all variables
+c   units:                     538        40.25    conflicts per unit
+c   binaries:                 3998         5.42    conflicts per binary
+c learned:                  169333         7.82    per conflict
+c memory:                497319936       474.28    bytes and MB
+c minimized:                 24967        12.85 %  of 1st-UIP-literals
+c probings:                      2     10827.00    conflicts per probing
+c probed:                    12473       623.65    per failed
+c   hbrs:                   436501        35.00    per probed
+c   hbrsizes:              1415315         3.24    per hbr
+c   hbreds:                 291321        66.74 %  per hbr
+c   hbrsubs:                   465         0.11 %  per hbr
+c propagations:          263163371         3.15    millions per second
+c   searchprops:         240895117        91.54 %  of propagations
+c   transredprops:        14428815         5.48 %  of propagations
+c   probeprops:            4408675         1.68 %  of propagations
+c   vivifyprops:           3430764         1.30 %  of propagations
+c reduced:                    5633        26.01 %  clauses per conflict
+c   collections:                11      1968.55    conflicts per collection
+c   extendbytes:          33554432        32.00    bytes and MB
+c reductions:                    7      3093.43    conflicts per reduction
+c rephased:                      0         0.00    conflicts per rephase
+c resolutions:            17846326        28.62    per eliminated
+c   elimres2:             14918874       100.00 %  per resolved
+c   elimrestried:         15352722        86.03 %  per resolved
+c restarts:                    921        23.51    conflicts per restart
+c reused:                       60         6.51 %  per restart
+c searched:               15488481        26.89    per decision
+c strengthened:             275424         2.88    per subsumed
+c   subirr:                  82563        86.44 %  of subsumed
+c   subred:                    243         0.25 %  of subsumed
+c   subtried:              2620628       121.02    per conflict
+c   subchecks:            20909873         7.98    per tried
+c   subchecks2:              97194         0.46 %  per subcheck
+c substituted:              125886        10.33 %  of all variables
+c subsumed:                  95512        27.44    tried per subsumed
+c   duplicated:              12550        13.14 %  per subsumed
+c   transitive:                986         1.03 %  per subsumed
+c subsumptions:                  7      3093.43    conflicts per subsumption
+c time:                                   83.49    seconds
+c transreductions:               2     10827.00    conflicts per reduction
+c vivifications:                 2     10827.00    conflicts per vivification
+c vivified:                   1138        24.66 %  per vivify check
+c   vivifychecks:             4615        21.31 %  per conflict
+c   vivifysched:            159368         2.90 %  checks per scheduled
+c   vivifyunits:                 0         0.00 %  per vivify check
+c   vivifysubs:                156         0.16 %  per subsumed
+c   vivifystrs:                982         0.36 %  per strengthened
+c   vivifydecs:              10727         2.32    per checks
+c   vivifyreused:             2158        20.12 %  per decision
+
+*********** tmp_OST.cnf
+
+
+// normal
+c ---- [ run-time profiling data ] -------------------------------------------
+c
+c        38.34   67.30% search
+c        17.28   30.33% simplify
+c         9.62   16.88% elim
+c         4.17    7.31% subsume
+c         3.76    6.60% collect
+c         2.72    4.78% reduce
+c         1.77    3.10% connect
+c         1.63    2.86% probe
+c         1.47    2.58% vivify
+c         1.16    2.03% parse
+c         1.02    1.79% decompose
+c         0.51    0.90% compact
+c         0.40    0.70% transred
+c         0.22    0.38% deduplicate
+c   ===============================
+c        56.97  100.00% all
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c bumped:                  1282769        97.41    per conflict
+c compacts:                      1     13169.00    conflicts per compact
+c conflicts:                 13169       231.15    per second
+c decisions:                640124     11235.70    per second
+c decompositions:                2         2.00    decompositions per probing
+c eliminated:               489030        55.83 %  of all variables
+c eliminations:                  7      1881.29    conflicts per elimination
+c failed:                       18         0.00 %  of all variables
+c fixed:                     86365         9.86 %  of all variables
+c   units:                     389        33.85    conflicts per unit
+c   binaries:                 2429         5.42    conflicts per binary
+c learned:                  105956         8.05    per conflict
+c memory:                433319936       413.25    bytes and MB
+c minimized:                 15821        12.99 %  of 1st-UIP-literals
+c probings:                      1     13169.00    conflicts per probing
+c probed:                      902        50.11    per failed
+c   hbrs:                   102139       113.24    per probed
+c   hbrsizes:               314181         3.08    per hbr
+c   hbreds:                  35683        34.94 %  per hbr
+c   hbrsubs:                    14         0.01 %  per hbr
+c propagations:          165062351         2.90    millions per second
+c   searchprops:         147334115        89.26 %  of propagations
+c   transredprops:        12744537         7.72 %  of propagations
+c   probeprops:             548962         0.33 %  of propagations
+c   vivifyprops:           4434737         2.69 %  of propagations
+c reduced:                    2842        21.58 %  clauses per conflict
+c   collections:                 9      1463.22    conflicts per collection
+c   extendbytes:          16777216        16.00    bytes and MB
+c reductions:                    5      2633.80    conflicts per reduction
+c rephased:                      0         0.00    conflicts per rephase
+c resolutions:            12334535        25.22    per eliminated
+c   elimres2:              9053601       100.00 %  per resolved
+c   elimrestried:         10569900        85.69 %  per resolved
+c restarts:                    704        18.71    conflicts per restart
+c reused:                       34         4.83 %  per restart
+c searched:               11603320        18.13    per decision
+c strengthened:             109789         5.29    per subsumed
+c   subirr:                  20162        97.22 %  of subsumed
+c   subred:                    197         0.95 %  of subsumed
+c   subtried:              1856149       140.95    per conflict
+c   subchecks:            14151278         7.62    per tried
+c   subchecks2:              47374         0.33 %  per subcheck
+c substituted:                2927         0.33 %  of all variables
+c subsumed:                  20739        89.50    tried per subsumed
+c   duplicated:                113         0.54 %  per subsumed
+c   transitive:               3177        15.32 %  per subsumed
+c subsumptions:                  7      1881.29    conflicts per subsumption
+c time:                                   56.97    seconds
+c transreductions:               2      6584.50    conflicts per reduction
+c vivifications:                 2      6584.50    conflicts per vivification
+c vivified:                    539        11.08 %  per vivify check
+c   vivifychecks:             4865        36.94 %  per conflict
+c   vivifysched:            481440         1.01 %  checks per scheduled
+c   vivifyunits:                 0         0.00 %  per vivify check
+c   vivifysubs:                267         1.29 %  per subsumed
+c   vivifystrs:                272         0.25 %  per strengthened
+c   vivifydecs:              12816         2.63    per checks
+c   vivifyreused:             1364        10.64 %  per decision
+c
+
+
+/// vivify with glue.
+c ---- [ run-time profiling data ] -------------------------------------------
+c
+c        22.94   60.34% search
+c        13.26   34.87% simplify
+c         8.43   22.16% elim
+c         2.88    7.58% collect
+c         2.76    7.26% subsume
+c         1.58    4.16% reduce
+c         1.48    3.88% parse
+c         1.32    3.48% probe
+c         0.96    2.52% connect
+c         0.95    2.50% decompose
+c         0.63    1.65% vivify
+c         0.49    1.29% compact
+c         0.14    0.37% deduplicate
+c         0.12    0.32% transred
+c   ===============================
+c        38.02  100.00% all
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c bumped:                  1131979       125.76    per conflict
+c compacts:                      1      9001.00    conflicts per compact
+c conflicts:                  9001       236.75    per second
+c decisions:                414215     10894.93    per second
+c decompositions:                2         2.00    decompositions per probing
+c eliminated:               479569        54.75 %  of all variables
+c eliminations:                  5      1800.20    conflicts per elimination
+c failed:                       18         0.00 %  of all variables
+c fixed:                     82720         9.44 %  of all variables
+c   units:                     316        28.48    conflicts per unit
+c   binaries:                 1731         5.20    conflicts per binary
+c learned:                   69944         7.77    per conflict
+c memory:                432939008       412.88    bytes and MB
+c minimized:                  9186        11.61 %  of 1st-UIP-literals
+c probings:                      1      9001.00    conflicts per probing
+c probed:                      902        50.11    per failed
+c   hbrs:                   102139       113.24    per probed
+c   hbrsizes:               314181         3.08    per hbr
+c   hbreds:                  35683        34.94 %  per hbr
+c   hbrsubs:                    14         0.01 %  per hbr
+c propagations:          107530191         2.83    millions per second
+c   searchprops:         103340569        96.10 %  of propagations
+c   transredprops:         2744283         2.55 %  of propagations
+c   probeprops:             548962         0.51 %  of propagations
+c   vivifyprops:            896377         0.83 %  of propagations
+c reduced:                     643         7.14 %  clauses per conflict
+c   collections:                 7      1285.86    conflicts per collection
+c   extendbytes:          16777216        16.00    bytes and MB
+c reductions:                    3      3000.33    conflicts per reduction
+c rephased:                      0         0.00    conflicts per rephase
+c resolutions:            10643061        22.19    per eliminated
+c   elimres2:              7930242       100.00 %  per resolved
+c   elimrestried:          8936185        83.96 %  per resolved
+c restarts:                    478        18.83    conflicts per restart
+c reused:                       33         6.90 %  per restart
+c searched:                7613912        18.38    per decision
+c strengthened:             102151         6.84    per subsumed
+c   subirr:                  14795        99.02 %  of subsumed
+c   subred:                      0         0.00 %  of subsumed
+c   subtried:              1517469       168.59    per conflict
+c   subchecks:            11225965         7.40    per tried
+c   subchecks2:                  0         0.00 %  per subcheck
+c substituted:                2927         0.33 %  of all variables
+c subsumed:                  14941       101.56    tried per subsumed
+c   duplicated:                113         0.76 %  per subsumed
+c   transitive:                 42         0.28 %  per subsumed
+c subsumptions:                  5      1800.20    conflicts per subsumption
+c time:                                   38.02    seconds
+c transreductions:               1      9001.00    conflicts per reduction
+c vivifications:                 1      9001.00    conflicts per vivification
+c vivified:                     61         6.43 %  per vivify check
+c   vivifychecks:              949        10.54 %  per conflict
+c   vivifysched:            137185         0.69 %  checks per scheduled
+c   vivifyunits:                 1         0.11 %  per vivify check
+c   vivifysubs:                 33         0.22 %  per subsumed
+c   vivifystrs:                 28         0.03 %  per strengthened
+c   vivifydecs:               2109         2.22    per checks
+c   vivifyreused:              834        39.54 %  per decision
+c
+
