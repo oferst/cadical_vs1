@@ -88,7 +88,7 @@ void Internal::bump_variables () {
 // a 'analyzed' field).  We keep the relative order of bumped clauses by
 // sorting them first.
 
-inline void Internal::bump_clause (Clause * c) { c->used = true; }
+inline void Internal::bump_clause(Clause * c) { c->used = true; } // ofer: also for irredundant clauses. 
 
 /*------------------------------------------------------------------------*/
 

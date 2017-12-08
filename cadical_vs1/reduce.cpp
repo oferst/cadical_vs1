@@ -50,8 +50,7 @@ struct less_usefull {
   }
 };
 
-void Internal::update_clause_useful_probability (Clause * c, bool used) {
-  assert (!c->keep);
+void Internal::update_clause_useful_probability (Clause * c, bool used) {  
   double predicted = clause_useful (c);
   double actual = used ? 1 : 0;
   double error = actual - predicted;
@@ -67,6 +66,7 @@ void Internal::update_clause_useful_probability (Clause * c, bool used) {
     clause_useful (c), wg, c->glue, ws, c->size);
 }
 
+
 // This function implements the important reduction policy. It determines
 // which redundant clauses are considered not useful and thus will be
 // collected in a subsequent garbage collection phase.
@@ -77,7 +77,15 @@ void Internal::mark_useless_redundant_clauses_as_garbage () {
   const_clause_iterator end = clauses.end (), i;
   for (i = clauses.begin (); i != end; i++) {
     Clause * c = *i;
-    if (!c->redundant) continue;                // keep irredundant
+	if (!c->redundant) {
+		if (opts.semviv < 1.0) { // !! change to +inf
+			if (c->glue == 0) {
+				compute_glue(c);
+			}
+			update_clause_useful_probability(c, c->used); // ofer. marking usefullness of irredundant clauses also. 
+		}
+		continue;                // keep irredundant
+	}
     if (c->garbage) continue;                   // already marked
     if (c->reason) continue;                    // need to keep reasons
     const bool used = c->used;

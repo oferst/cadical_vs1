@@ -285,6 +285,8 @@ class Internal {
   Clause * new_hyper_binary_resolved_clause (bool red, int glue);
   Clause * new_clause_as (const Clause * orig);
   Clause * new_resolved_irredundant_clause ();
+  
+  void compute_glue(Clause *c); // ofer
 
   // Forward reasoning through propagation in 'propagate.cpp'.
   //
@@ -419,7 +421,11 @@ class Internal {
     return c->size <= lim.keptsize && c->glue <= lim.keptglue;
   }
 
-  double clause_useful (Clause * c) { return ws/c->size + wg/c->glue; }
+  double clause_useful (Clause * c) { // note that the returned value can exceed 1. So it is not a probability. 	  	  
+	  //printf("%f,", ws / c->size + wg / c->glue);
+	  if (ws / c->size + wg / c->glue > 0.8) printf("%f,", ws / c->size + wg / c->glue);
+	  return ws/c->size + wg/c->glue;   
+  }
 
   // We mark variables in added or shrunken clauses as being 'added' if the
   // clause is likely to be kept in the next 'reduce' phase (see last

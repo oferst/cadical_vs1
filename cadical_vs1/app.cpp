@@ -210,6 +210,7 @@ int App::main (int argc, char ** argv) {
     fflush (stdout);
   } else {
     printf ("c UNKNOWN\n");
+	printf("### Abort"); // ofer
     fflush (stdout);
   }
   solver->statistics ();

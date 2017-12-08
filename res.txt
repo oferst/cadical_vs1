@@ -333,3 +333,52 @@ c   vivifydecs:               2109         2.22    per checks
 c   vivifyreused:              834        39.54 %  per decision
 c
 
+*** // manol-pipe-c10b.cnf.gz
+// normal
+c ---- [ statistics ] --------------------------------------------------------
+c 
+c bumped:                  2430119        35.61    per conflict
+c compacts:                      4     17062.00    conflicts per compact
+c conflicts:                 68248     11660.51    per second
+### conflicts 68248
+c decisions:                447086     76386.88    per second
+### decisions 447086
+c decompositions:                6         2.00    decompositions per probing
+c eliminated:                37465        86.09 %  of all variables
+c eliminations:                 13      5249.85    conflicts per elimination
+c failed:                       63         0.14 %  of all variables
+c fixed:                      3242         7.45 %  of all variables
+c learned:                 1010774        14.81    per conflict
+c memory:                 28803072        27.47    bytes and MB
+c minimized:                338329        25.08 %  of 1st-UIP-literals
+c probings:                      3     22749.33    conflicts per probing
+c probed:                     6395       101.51    per failed
+c propagations:           23855558         4.08    millions per second
+c reduced:                   35136        51.48 %  clauses per conflict
+c reductions:                   16      4265.50    conflicts per reduction
+c rephased:                      0         0.00    conflicts per rephase
+c resolutions:             1153998        30.80    per eliminated
+c restarts:                   3210        21.26    conflicts per restart
+c reused:                      604        18.82 %  per restart
+c searched:                5232837        11.70    per decision
+c strengthened:               8810         0.76    per subsumed
+c substituted:                 804         1.85 %  of all variables
+c subsumed:                  11535        29.49    tried per subsumed
+c subsumptions:                 13      5249.85    conflicts per subsumption
+c time:                                    5.85    seconds
+### time       5.85
+c transreductions:               5     13649.60    conflicts per reduction
+c vivifications:                 5     13649.60    conflicts per vivification
+### vivifications 5
+c vivified:                    550         7.05 %  per vivify check
+### vivified 550
+### vivifychecks 7801
+### vivifysched 114846
+### vivifyunits 0
+### vivifysubs 467
+### vivifystrs 83
+### vivifydecs 16770
+### vivifyreused 8123
+c 
+c exit 20
+

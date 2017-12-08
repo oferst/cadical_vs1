@@ -199,7 +199,7 @@ namespace CaDiCaL {
 			{
 				noccs(*j) += score;
 			// ofer
-				if (opts.semviv) {
+				if (opts.semviv < 1.0 && c->glue == 0) { // !! change from 1 to some default +inf
 					Var v = var(*j);
 					Level & l = control[v.level]; // note definition by reference, hence l is an alias of control, not a variable. 
 					if (!l.seen++) {
@@ -210,10 +210,8 @@ namespace CaDiCaL {
 			}
 			
 			// ofer
-			if (opts.semviv) {
+			if (opts.semviv < 1.0 && c->glue == 0) { // !! same
 				c->glue = mylevels.size();
-				//printf("%d %d,", c->size, c->glue);
-
 				for (const_int_iterator i = mylevels.begin(); i != mylevels.end(); i++) {
 					control[*i].seen = 0;
 				}
@@ -240,7 +238,7 @@ namespace CaDiCaL {
 				if (c->garbage) continue;
 				if (c->redundant) continue;
 				if (c->size == 2) continue;       // see also [NO-BINARY] below
-				if (opts.semviv && clause_useful(c) < 0.5) continue; // ofer. 
+				if (opts.semviv < 1.0 && (clause_useful(c) > opts.semviv || (c->size <= opts.keepsize) || (c->glue <= opts.keepglue))) continue; // ofer. default of opts.semviv is '1', hence condition will be false. 
 				if (!round && !c->vivify) continue;
 				sort(c->begin(), c->end(), vivify_more_noccs(this));
 				schedule.push_back(c);
@@ -248,7 +246,7 @@ namespace CaDiCaL {
 			}
 		}
 		shrink_vector(schedule);
-
+		printf("* size of schedule = %d\n", schedule.size());
 		// Sort candidates, with first to be tried candidate clause (many
 		// occurrences and high score literals) last.
 		//

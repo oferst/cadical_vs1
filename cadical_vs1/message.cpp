@@ -86,6 +86,7 @@ void Message::verbose (Internal * internal,
 
 void Message::verror (Internal * internal, const char *fmt, va_list & ap) {
   fputs ("*** cadical error: ", stderr);
+  printf("### Abort"); // ofer
   vfprintf (stderr, fmt, ap);
   fputc ('\n', stderr);
 }
