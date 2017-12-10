@@ -17,6 +17,12 @@ namespace CaDiCaL {
 	// very long clauses with literals with many occurrences and also is
 	// stronger in the sence that it enables to remove more clauses.
 
+// ofer: the basic idea: given a clause c = (l1 \/ ... \/ ln), we start assigning l1=0,...
+	// Several possibilities: 
+	// 1. At l_i, i < n, it becomes unsat. So we can replace c with a stronger clause c = (l1 \/ ... \/ li)
+	// 2. l_i, i < n, becomes implied.  Then (\varphi\c) => (l_1 \/ ...\/ l_i), which subsumes c and hence can replace it. 
+	// 3. -l_i, i < n, becomes implied. Then (\varphi\c) => (l_1 \/ ...\/ -l_i), and resolving this with c, 
+	// gives us c' = (l1 \/ ...\/ l_{i-1} \/ l_{i+1}\/... \/ ln), which subsumes c, so we can replace c with c'.
 	/*------------------------------------------------------------------------*/
 
 	// Check whether literal occurs less often.  In the implementation below
@@ -157,8 +163,7 @@ namespace CaDiCaL {
 		}
 	};
 
-	void Internal::vivify() {
-		vector<int> mylevels; // ofer
+	void Internal::vivify() {		
 		
 		if (unsat) return;
 
@@ -171,7 +176,7 @@ namespace CaDiCaL {
 		stats.vivifications++;
 
 		
-		//if (level) backtrack(); // ofer moved down
+		if (level) backtrack(); 
 
 		// Disconnect all watches since we sort literals in irredundant clauses.
 		//
@@ -197,30 +202,10 @@ namespace CaDiCaL {
 
 			for (j = c->begin(); j != eoc; j++)
 			{
-				noccs(*j) += score;
-			// ofer
-				if (opts.semviv < 1.0 && c->glue == 0) { // !! change from 1 to some default +inf
-					Var v = var(*j);
-					Level & l = control[v.level]; // note definition by reference, hence l is an alias of control, not a variable. 
-					if (!l.seen++) {
-						mylevels.push_back(v.level);
-					}
-				}
-			//// down to here
+				noccs(*j) += score;			
 			}
-			
-			// ofer
-			if (opts.semviv < 1.0 && c->glue == 0) { // !! same
-				c->glue = mylevels.size();
-				for (const_int_iterator i = mylevels.begin(); i != mylevels.end(); i++) {
-					control[*i].seen = 0;
-				}
-				mylevels.clear();
-			}
-			// ofer, down to here. 
 		}
-
-		if (level) backtrack(); // ofer, moved from higher, so v.level is still present. 
+		
 
 		// Refill the schedule every time.  Unchecked clauses are 'saved' by
 		// setting their 'vivify' bit, such that they can be tried next time.
@@ -237,8 +222,7 @@ namespace CaDiCaL {
 				Clause * c = *i;
 				if (c->garbage) continue;
 				if (c->redundant) continue;
-				if (c->size == 2) continue;       // see also [NO-BINARY] below
-				if (opts.semviv < 1.0 && (clause_useful(c) > opts.semviv || (c->size <= opts.keepsize) || (c->glue <= opts.keepglue))) continue; // ofer. default of opts.semviv is '1', hence condition will be false. 
+				if (c->size == 2) continue;       // see also [NO-BINARY] below				
 				if (!round && !c->vivify) continue;
 				sort(c->begin(), c->end(), vivify_more_noccs(this));
 				schedule.push_back(c);

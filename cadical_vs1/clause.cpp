@@ -366,27 +366,7 @@ namespace CaDiCaL {
 		if (proof) proof->trace_add_clause(res);
 		assert(!watches());
 		return res;
-	}
-
-	// ofer
-	void Internal::compute_glue(Clause *c) {
-		vector<int> mylevels;
-		const const_literal_iterator eoc = c->end();
-		const_literal_iterator j;
-		for (j = c->begin(); j != eoc; j++)
-		{
-			Var v = var(*j);
-			Level & l = control[v.level]; // note definition by reference, hence l is an alias of control, not a variable. 
-			if (!l.seen++) {
-				mylevels.push_back(v.level);
-			}
-		}
-		c->glue = mylevels.size();
-
-		for (const_int_iterator i = mylevels.begin(); i != mylevels.end(); i++) {
-			control[*i].seen = 0;
-		}
-	}
+	}	
 }
 
 

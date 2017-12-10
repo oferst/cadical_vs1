@@ -286,8 +286,6 @@ class Internal {
   Clause * new_clause_as (const Clause * orig);
   Clause * new_resolved_irredundant_clause ();
   
-  void compute_glue(Clause *c); // ofer
-
   // Forward reasoning through propagation in 'propagate.cpp'.
   //
   void search_assign (int lit, Clause *);

@@ -77,13 +77,7 @@ void Internal::mark_useless_redundant_clauses_as_garbage () {
   const_clause_iterator end = clauses.end (), i;
   for (i = clauses.begin (); i != end; i++) {
     Clause * c = *i;
-	if (!c->redundant) {
-		if (opts.semviv < 1.0) { // !! change to +inf
-			if (c->glue == 0) {
-				compute_glue(c);
-			}
-			update_clause_useful_probability(c, c->used); // ofer. marking usefullness of irredundant clauses also. 
-		}
+	if (!c->redundant) {		
 		continue;                // keep irredundant
 	}
     if (c->garbage) continue;                   // already marked
